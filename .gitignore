@@ -1,0 +1,11 @@
+## ide
+.idea
+*.iws
+*.iml
+*.ipr
+.vscode/
+
+## project
+/diffusion-transforms/.mnist/
+/diffusion-transforms/.output/
+
