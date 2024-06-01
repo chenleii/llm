@@ -6,6 +6,7 @@
 .vscode/
 
 ## project
+.ipynb_checkpoints
 /diffusion-transforms/.mnist/
 /diffusion-transforms/.output/
 
