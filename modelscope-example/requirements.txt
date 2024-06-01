@@ -1,0 +1,2 @@
+modelscope==1.13.2
+transformers==4.39.1
