@@ -26,11 +26,11 @@ if __name__ == '__main__':
         print("label:", label.shape)
 
     model = model.Model()
-    optimizer = torch.optim.Adam(model.parameters())
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     criterion = nn.CrossEntropyLoss()
 
+    model.train()
     for epoch in range(10):
-        model.train()
         for batch_idx, (data, label) in enumerate(train_dataloader):
             output = model(data)
             loss = criterion(output, label)

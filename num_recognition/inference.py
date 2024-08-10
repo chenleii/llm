@@ -31,13 +31,14 @@ if __name__ == '__main__':
     model.eval()
 
     right_total = 0
-    for batch_idx, (data, label) in enumerate(test_datasets):
-        output = model(data)
-        predict = output.argmax(dim=1).item()
-        if predict == label:
-            right_total += 1
-        else:
-            print(f"wrong case: predict {predict}, label {label}, path:{test_datasets.samples[batch_idx][0]}")
+    with torch.no_grad():
+        for batch_idx, (data, label) in enumerate(test_datasets):
+            output = model(data)
+            predict = output.argmax(dim=1).item()
+            if predict == label:
+                right_total += 1
+            else:
+                print(f"wrong case: predict {predict}, label {label}, path:{test_datasets.samples[batch_idx][0]}")
 
     test_sample_total = len(test_datasets)
     accuracy = right_total / test_sample_total
