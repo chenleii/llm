@@ -34,8 +34,8 @@ if __name__ == '__main__':
         # 概率最大的
         predict = output.argmax(dim=1).item()
 
-        plt.figure(figsize=(2.8, 2.8))
-        plt.imshow(img, cmap='gray')
+        # plt.figure(figsize=(2.8, 2.8))
+        plt.imshow(img.cpu().numpy(), cmap='gray')
         plt.axis('off')
         plt.title(f"randomMax:{random}, predictMax:{predict}")
         plt.show()
