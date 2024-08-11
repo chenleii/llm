@@ -12,7 +12,7 @@ import model
 if __name__ == '__main__':
     # transforms_compose = transforms.Compose([transforms.Grayscale(num_output_channels=1), transforms.ToTensor(), ])
     # img = Image.open("./mnist_test/2/mnist_test_1.png")
-    # img = transforms_compose(img)
+    # img = transforms_compose(img)[0]
 
     # 数字3形状
     img = torch.zeros(28, 28)
