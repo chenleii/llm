@@ -34,9 +34,16 @@ if __name__ == '__main__':
         # 概率最大的
         predict = output.argmax(dim=1).item()
 
-        # plt.figure(figsize=(2.8, 2.8))
-        plt.imshow(img.cpu().numpy(), cmap='gray')
-        plt.axis('off')
-        plt.title(f"randomMax:{random}, predictMax:{predict}")
+        figure = plt.figure()
+        # layout = """A
+        #             B"""
+        layout = [['A'],['B']]
+        axes_mosaic = figure.subplot_mosaic(layout)
+        axes_mosaic['A'].imshow(img.cpu().numpy(), cmap='gray')
+        axes_mosaic['A'].axis('off')
+        axes_mosaic['A'].set_title(f"recognition randomMax:{random}, predictMax:{predict}")
+        axes_mosaic['B'].plot(output.squeeze(0) .cpu().numpy())
+        axes_mosaic['B'].set_xlim(0, 9)
+        # axes_mosaic['B'].set_xticks(torch.range(0,9,1).cpu().numpy())
+        axes_mosaic['B'].set_title(f"recognition probability distribution")
         plt.show()
-
