@@ -42,7 +42,7 @@ if __name__ == '__main__':
         axes_mosaic['A'].imshow(img.cpu().numpy(), cmap='gray')
         axes_mosaic['A'].axis('off')
         axes_mosaic['A'].set_title(f"recognition randomMax:{random}, predictMax:{predict}")
-        axes_mosaic['B'].plot(output.squeeze(0) .cpu().numpy())
+        axes_mosaic['B'].plot(output.squeeze(0) .cpu().numpy(),'r--')
         axes_mosaic['B'].set_xlim(0, 9)
         # axes_mosaic['B'].set_xticks(torch.range(0,9,1).cpu().numpy())
         axes_mosaic['B'].set_title(f"recognition probability distribution")
